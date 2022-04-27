@@ -1,11 +1,28 @@
 // Imports
 const { range } = require("lodash");
+<<<<<<< HEAD:server/models/allocationFunctions/weights.js
 const { createArray, createArray2D, copyArray2D, forEachPair } = require("../../utils");
+||||||| 0e3136d:server/models/allocationFunctions/weights.js
+const {
+  createArray,
+  createArray2D,
+  copyArray2D,
+  forEachPair,
+} = require("../../utils");
+=======
+const { createArray, createArray2D, copyArray2D, forEachPair } = require("./utils");
+>>>>>>> 586c4a9149a6e130036835d24435512412c8b17f:server/models/helper/weights.js
 
 // Export
-module.exports = { padWeights, stopDoublePlaceholder, calculateNewWeights };
+module.exports = { padWeights, stopDoublePlaceholder, calculateNewWeights, formatWeights };
 
 // Functions
+
+// add docs string !!!!
+function formatWeights(weights, numberPeople, numberPlaces) {
+  const placeholders = padWeights(numberPlaces, weights);
+  return stopDoublePlaceholder(numberPeople, placeholders);
+}
 
 // Add 0 padding to 2d array
 // Takes:
@@ -24,13 +41,13 @@ function padWeights(requiredSize, weights) {
 // Change to weights of two placeholders to be Infinity
 //  So that no group will ever has 2 placeholders/empty slots
 // Takes:
-//  - actualNumberPeople: int
+//  - numberPeople: int
 //  - weights: 2d array
 // Returns
 //  - updatedWeights: 2d array
-function stopDoublePlaceholder(actualNumberPeople, weights) {
+function stopDoublePlaceholder(numberPeople, weights) {
   const newWeights = copyArray2D(weights);
-  const placeHolders = range(actualNumberPeople, newWeights.length);
+  const placeHolders = range(numberPeople, newWeights.length);
   forEachPair(placeHolders, (a, b) => {
     newWeights[a][b] = newWeights[b][a] = Infinity;
   });

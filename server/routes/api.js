@@ -1,9 +1,14 @@
 // Imports
 const express = require("express");
-const { getCohorts, getCohort, addCohort } = require("../models/dbFunctions/cohort");
-const { getPeople, addPeople } = require("../models/dbFunctions//people");
-const { newWeights } = require("../models/dbFunctions//weights");
-const newAllocation = require("../models/allocationFunctions/allocations");
+const { getCohorts, getCohort, addCohort } = require("../db/cohort");
+const { getPeople, addPeople } = require("../db/people");
+const { newWeights } = require("../db/weights");
+// remove??
+const newAllocation = require("../models/allocations");
+
+// Test imports
+const getBestAllocation = require("../models/getBestAllocation");
+const randomAllocator = require("../models/randomAllocator");
 
 // Init
 const router = express.Router();
@@ -47,11 +52,10 @@ router.post("/", async (req, res) => {
 
 // get new grouping
 router.get("/:id/teams", async (req, res) => {
-  // takes in team names array
   try {
-    const cohort_id = req.params.id;
+    const cohortId = req.params.id;
     const { teams } = req.body;
-    const allocation = await newAllocation(cohort_id, teams);
+    const allocation = await getBestAllocation(cohortId, teams, randomAllocator);
     res.status(200).json({ allocation });
   } catch (error) {
     console.log(error); //need a persistent log
