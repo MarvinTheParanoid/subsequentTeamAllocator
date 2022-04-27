@@ -1,33 +1,34 @@
 import { UPDATE_FORM, ADD_TO_FORM, DELETE_FROM_FORM, UPDATE_GROUP_NAME } from "../actions/form";
+import { v4 as uuidv4 } from "uuid";
 
 //Main functions
+
+//Starting with 3 input fields, users can add more input fields if there are more students in the group
 const initialState = {
   groupName: "",
-  students: [
-    { id: 1, name: "" },
-    { id: 2, name: "" },
-    { id: 3, name: "" },
-  ],
+  students: [],
 };
 
 function form(state = initialState, action) {
   switch (action.type) {
     case ADD_TO_FORM:
+      const id = uuidv4();
       return {
         ...state,
-        students: [...state.students, { id: state.students.length + 1, name: "" }],
+        students: [...state.students, { id, name: "" }],
       };
 
     case UPDATE_FORM:
       return { ...state, students: getUpdatedField(state.students, action.id, action.name) };
 
     case UPDATE_GROUP_NAME:
-      return getUpdatedField(state, action.groupName);
+      return { ...state, groupName: action.groupName };
+
+    case DELETE_FROM_FORM:
+      return { ...state, students: state.students.filter((item) => item.id !== action.id) };
 
     default:
       return state;
-    // case DELETE_FROM_CART:
-    //   return state.filter((item) => item.id !== action.id);
   }
 }
 export default form;
