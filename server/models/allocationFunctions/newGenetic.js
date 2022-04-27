@@ -16,24 +16,15 @@ Genetic :
 */
 
 // Imports
-const _ = require('lodash')
-const { forEachPair } = require('../../utils')
-const { randomAllocations } = require('./allocations2')
-const { score } = require('./score')
+const _ = require("lodash");
+const { forEachPair } = require("../../utils");
+const { randomAllocations } = require("./allocations2");
+const { score } = require("./score");
 
 // Export
-module.exports = randomScoredAllocation
+module.exports = randomScoredAllocation;
 
-function randomScoredAllocation(
-  numberTeams,
-  teamSize,
-  weights,
-  numberRandomAllocations = 10
-) {
-  const initAllo = randomAllocations(
-    numberTeams,
-    teamSize,
-    numberRandomAllocations
-  )
+function randomScoredAllocation(numberTeams, teamSize, weights, numberRandomAllocations = 10) {
+  const initAllo = randomAllocations(numberTeams, teamSize, numberRandomAllocations);
 }
-randomScoredAllocation(3, 3, weights)
+randomScoredAllocation(3, 3, weights);
