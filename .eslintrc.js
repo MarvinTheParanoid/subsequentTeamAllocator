@@ -17,11 +17,11 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "import", "react-hooks"],
-  ignorePatterns: ["node_modules/"],
+  ignorePatterns: ["node_modules/", "bundle.*"],
   rules: {},
   settings: {
     react: {
-      version: "latest", // "detect" automatically picks the version you have installed.
+      version: "detect",
     },
   },
 };
