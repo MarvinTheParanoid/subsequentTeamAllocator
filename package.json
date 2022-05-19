@@ -7,7 +7,6 @@
     "dev": "run-p dev:client dev:server format",
     "dev:client": "webpack --watch --config client/webpack.config.js",
     "dev:server": "nodemon --watch server",
-    "knex": "knex --knexfile server/db/knexfile.js",
     "lint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
