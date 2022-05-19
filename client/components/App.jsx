@@ -1,10 +1,11 @@
 // Imports
 import React, { useState, useMemo } from "react";
-import { CssBaseline, ThemeProvider, Paper, Typography, Switch } from "@mui/material";
+import { CssBaseline, ThemeProvider, Paper } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { getTheme } from "../theme";
 
 //Component imports
+import Header from "./Header";
 
 // App
 function App() {
@@ -19,8 +20,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Paper style={{ height: "100vh" }}>
-        <Typography variant="h1">Hello, World!</Typography>
-        <Switch checked={darkMode} onClick={changeMode} />
+        <Header mode={darkMode} changeMode={changeMode} />
       </Paper>
     </ThemeProvider>
   );
