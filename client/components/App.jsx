@@ -3,6 +3,7 @@ import React, { useState, useMemo } from "react";
 import { CssBaseline, ThemeProvider, Paper } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { getTheme } from "../theme";
+import { useLocalStorage } from "../useLocalStorage";
 
 //Component imports
 import Header from "./Header";
@@ -12,15 +13,20 @@ function App() {
   // Theme
   // create function in theme.js that first checks localStorage, then prefersDarkMode, otherwise false
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const [ darkMode, setDarkMode ] = useState(() => prefersDarkMode);
-  const changeMode = () => setDarkMode(!darkMode) //would need to update local storage
+  const [darkMode, setDarkMode] = useState(() => prefersDarkMode);
+  const changeMode = () => setDarkMode(!darkMode); //would need to update local storage
   const theme = useMemo(() => getTheme(darkMode), [darkMode]);
+
+  // test
+  const [saved, setSaved] = useLocalStorage("saved", "test");
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Paper style={{ height: "100vh" }}>
         <Header mode={darkMode} changeMode={changeMode} />
+        <p>{saved}</p>
+        <input type="text" value={saved} onChange={(e) => setSaved(e.target.value)} />
       </Paper>
     </ThemeProvider>
   );
