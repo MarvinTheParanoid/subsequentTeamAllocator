@@ -11,8 +11,8 @@ describe("padWeights function - adds 0 padding to a 2d array", () => {
     const actual = padWeights(requiredSize, weights);
     expect.assertions(3);
     expect(Array.isArray(actual)).toBe(true);
-    expect(actual.length).toBe(4);
-    expect(actual[0].length).toBe(4);
+    expect(actual).toHaveLength(4);
+    expect(actual[0]).toHaveLength(4);
   });
   it("Returned array should keep original values", () => {
     const requiredSize = 4;
@@ -39,8 +39,8 @@ describe("stopDoublePlaceholder - changes weight of two placeholders to be Infin
     const actual = stopDoublePlaceholder(actualNumberPeople, weights);
     expect.assertions(3);
     expect(Array.isArray(actual)).toBe(true);
-    expect(actual.length).toBe(2);
-    expect(actual[0].length).toBe(2);
+    expect(actual).toHaveLength(2);
+    expect(actual[0]).toHaveLength(2);
   });
   it("Intersection between placeholders should be Infinity", () => {
     const actualNumberPeople = 1;
@@ -71,8 +71,8 @@ describe("calculateNewWeights - returns new weights array updated based on alloc
     const actual = calculateNewWeights(weights, allocation);
     expect.assertions(3);
     expect(Array.isArray(actual)).toBe(true);
-    expect(actual.length).toBe(4);
-    expect(actual[0].length).toBe(4);
+    expect(actual).toHaveLength(4);
+    expect(actual[0]).toHaveLength(4);
   });
   it("Doesn't change non-pairs", () => {
     const weights = [

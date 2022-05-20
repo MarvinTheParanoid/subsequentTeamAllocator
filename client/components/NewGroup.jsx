@@ -1,7 +1,15 @@
 import React from "react";
+import Header from "./elements/Header";
+
+import Form from "./Form";
 
 function NewGroup() {
-  return <div>Form to create a new group</div>;
+  return (
+    <>
+      <Header headerName="CREATE NEW GROUP" />
+      <Form />
+    </>
+  );
 }
 
 export default NewGroup;

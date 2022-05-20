@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { getGroups } from "../api/groups";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchGroups } from "../actions/groups";
+useEffect;
 
 //Component import
 import GroupsItems from "./GroupsItems";
 
-function PastGroups() {
-  //local state is only used for testing the API route's mock data, will use redux when its setup
-  const [group, setGroup] = useState([]);
+function Groups() {
+  const groups = useSelector((state) => state.groups);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getGroups()
-      .then((group) => setGroup(group))
-      .catch((err) => console.error(err));
+    dispatch(fetchGroups());
   }, []);
 
-  return group.map((group, i) => (
+  return groups.map((group, i) => (
     <GroupsItems key={i} groupName={group.groupName} count={group.count} />
   ));
 }
 
-export default PastGroups;
+export default Groups;
