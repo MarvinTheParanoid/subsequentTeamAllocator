@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./elements/Header";
-import Groups from "./Groups";
+import PastGroups from "./Groups";
 import CreateGroup from "./elements/CreateGroup";
 
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
     <>
       <Header headerName="FRIDAY PROJECTS" />
       <CreateGroup />
-      <Groups />
+      <PastGroups />
     </>
   );
 }

@@ -7,9 +7,3 @@ export function getGroups() {
     { groupName: "Placeholder", count: 33 },
   ]);
 }
-
-export function postGroupForm(info) {
-  // return request.post('#').send(info)
-  console.log(info);
-  return null;
-}

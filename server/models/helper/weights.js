@@ -1,17 +1,6 @@
 // Imports
 const { range } = require("lodash");
-<<<<<<< HEAD:server/models/allocationFunctions/weights.js
-const { createArray, createArray2D, copyArray2D, forEachPair } = require("../../utils");
-||||||| 0e3136d:server/models/allocationFunctions/weights.js
-const {
-  createArray,
-  createArray2D,
-  copyArray2D,
-  forEachPair,
-} = require("../../utils");
-=======
 const { createArray, createArray2D, copyArray2D, forEachPair } = require("./utils");
->>>>>>> 586c4a9149a6e130036835d24435512412c8b17f:server/models/helper/weights.js
 
 // Export
 module.exports = { padWeights, stopDoublePlaceholder, calculateNewWeights, formatWeights };
