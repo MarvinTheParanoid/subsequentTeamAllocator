@@ -11,11 +11,15 @@ import Header from "./Header";
 // App
 function App() {
   // Theme
-  // create function in theme.js that first checks localStorage, then prefersDarkMode, otherwise false
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [isDarkMode, setDarkMode] = useLocalStorage('prefersDarkMode', prefersDarkMode);
-  const changeMode = () => setDarkMode(!isDarkMode); //would need to update local storage
+  const changeMode = () => setDarkMode(!isDarkMode); 
   const theme = useMemo(() => getTheme(isDarkMode), [isDarkMode]);
+
+  // Core states
+  const [ teams, setTeams ] = useLocalStorage('teams', []);
+  const [ people, setPeople ] = useLocalStorage('people', []);
+  const [ history, setHistory ] = useLocalStorage('history', []);
 
   return (
     <ThemeProvider theme={theme}>
