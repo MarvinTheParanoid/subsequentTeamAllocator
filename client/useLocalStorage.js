@@ -1,12 +1,9 @@
 // Imports
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-// Custom useLocalStorage hook
-export function useLocalStorage(key, defaultValue) {
-  console.log("Called useLocalState");
-
-  const [storedValue, setStoredValue] = useState(() => {
-    console.log("Called useState");
+// custom useLocalStorage hook
+export const useLocalStorage = (key, defaultValue) => {
+  const [value, setValue] = useState(() => {
     try {
       const item = window.localStorage.getItem(key);
       return item ? parseJSON(item) : defaultValue;
@@ -15,20 +12,16 @@ export function useLocalStorage(key, defaultValue) {
       return defaultValue;
     }
   });
-
-  const setState = (value) => {
-    console.log("Called setState");
+  useEffect(() => {
     try {
-      const newValue = value instanceof Function ? value(storedValue) : value;
+      const newValue = value instanceof Function ? value(value) : value;
       window.localStorage.setItem(key, JSON.stringify(newValue));
-      setStoredValue(newValue);
     } catch (error) {
       console.log(error); //add better logging
-      setStoredValue(value); //
     }
-  };
-  return [storedValue, setState];
-}
+  }, [key, value]);
+  return [value, setValue];
+};
 
 // Wrapper to help handle undefined with JSON.parse
 function parseJSON(value) {
