@@ -1,8 +1,6 @@
-//  addPerson
+// addPerson
 
 // removePerson
-
-// clearPeople
 
 // updatePairings
 
