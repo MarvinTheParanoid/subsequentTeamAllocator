@@ -1,13 +1,15 @@
 // Imports
 import React, { useMemo } from "react";
 import "../i18n";
-import { CssBaseline, ThemeProvider, Paper } from "@mui/material";
+import { CssBaseline, ThemeProvider, Grid, Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { getTheme } from "../theme";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 //Component imports
 import Header from "./Header";
+import Sidebar from "./Sidebar";
+import InputSection from "./InputSection";
 
 // App
 function App() {
@@ -25,9 +27,29 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Paper style={{ height: "100vh" }}>
-        <Header mode={isDarkMode} changeMode={changeMode} />
-      </Paper>
+      <Box style={{ height: "100vh" }}>
+        <Grid container
+          direction="column"
+          justifyContent="flex-start"
+          alignItems="stretch"
+          height={"100%"}
+          >
+          <Header mode={isDarkMode} changeMode={changeMode}/>
+          <Grid item xs container direction="row"
+            alignItems="stretch"
+            height={"100%"}>
+            <Grid item xs={12} md={4}>
+              <Sidebar>
+                <InputSection state={teams} setter={setTeams} translation="teams"/>
+                <InputSection state={people} setter={setPeople} translation="people"/>
+              </Sidebar>
+            </Grid>
+            <Grid item xs>
+              2
+            </Grid>
+          </Grid>
+        </Grid>
+      </Box>
     </ThemeProvider>
   );
 }
