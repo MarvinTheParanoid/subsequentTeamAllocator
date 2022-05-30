@@ -4,7 +4,7 @@ import "../i18n";
 import { CssBaseline, ThemeProvider, Paper } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { getTheme } from "../theme";
-import { useLocalStorage } from "../useLocalStorage";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 //Component imports
 import Header from "./Header";
