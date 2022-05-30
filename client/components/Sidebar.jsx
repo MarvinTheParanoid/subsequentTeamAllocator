@@ -1,12 +1,17 @@
 import React from "react";
-import { Paper, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
+import PropTypes from "prop-types";
 
-function Sidebar({children}) {
+export default function Sidebar({ children }) {
   return (
-    <Paper sx={{ backgroundColor: "blue" }}>
-      {children}
-    </Paper>
+    <Grid item xs={12} md={4} sx={{display: "flex", flexDirection: "column", alignItems: 'stretch', padding: 2 }}>
+      <Box sx={{border: 1, borderRadius: 1, padding: 2 }}>
+        {children}
+      </Box>
+    </Grid>
   );
 }
 
-export default Sidebar;
+Sidebar.propTypes = {
+  children : PropTypes.node,
+};

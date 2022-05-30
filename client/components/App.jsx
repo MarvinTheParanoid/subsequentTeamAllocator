@@ -1,7 +1,7 @@
 // Imports
 import React, { useMemo } from "react";
 import "../i18n";
-import { CssBaseline, ThemeProvider, Grid, Box } from "@mui/material";
+import { CssBaseline, ThemeProvider, Grid, Box, Paper } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { getTheme } from "../theme";
 import { useLocalStorage } from "../hooks/useLocalStorage";
@@ -28,22 +28,19 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box style={{ height: "100vh" }}>
-        <Grid container
+        <Grid
+          container
           direction="column"
           justifyContent="flex-start"
           alignItems="stretch"
           height={"100%"}
-          >
-          <Header mode={isDarkMode} changeMode={changeMode}/>
-          <Grid item xs container direction="row"
-            alignItems="stretch"
-            height={"100%"}>
-            <Grid item xs={12} md={4}>
-              <Sidebar>
-                <InputSection state={teams} setter={setTeams} translation="teams"/>
-                <InputSection state={people} setter={setPeople} translation="people"/>
-              </Sidebar>
-            </Grid>
+        >
+          <Header mode={isDarkMode} changeMode={changeMode} />
+          <Grid item xs container direction="row" alignItems="stretch" height={"100%"}>
+            <Sidebar>
+              <InputSection state={teams} setter={setTeams} translation="teams" />
+              <InputSection state={people} setter={setPeople} translation="people" />
+            </Sidebar>
             <Grid item xs>
               2
             </Grid>
@@ -55,3 +52,6 @@ function App() {
 }
 
 export default App;
+
+// Sidebar should have set width above breakpoint (width xs or sm??)
+//  below this should be max width
