@@ -1,5 +1,6 @@
 // Imports
 import React, { useMemo } from "react";
+import "../i18n";
 import { CssBaseline, ThemeProvider, Paper } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { getTheme } from "../theme";
@@ -12,14 +13,14 @@ import Header from "./Header";
 function App() {
   // Theme
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const [isDarkMode, setDarkMode] = useLocalStorage('prefersDarkMode', prefersDarkMode);
-  const changeMode = () => setDarkMode(!isDarkMode); 
+  const [isDarkMode, setDarkMode] = useLocalStorage("prefersDarkMode", prefersDarkMode);
+  const changeMode = () => setDarkMode(!isDarkMode);
   const theme = useMemo(() => getTheme(isDarkMode), [isDarkMode]);
 
   // Core states
-  const [ teams, setTeams ] = useLocalStorage('teams', []);
-  const [ people, setPeople ] = useLocalStorage('people', []);
-  const [ history, setHistory ] = useLocalStorage('history', []);
+  const [teams, setTeams] = useLocalStorage("teams", []);
+  const [people, setPeople] = useLocalStorage("people", []);
+  const [history, setHistory] = useLocalStorage("history", []);
 
   return (
     <ThemeProvider theme={theme}>
