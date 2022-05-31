@@ -30,7 +30,7 @@ function App() {
       <CssBaseline />
       <Box sx={{ height: "100vh", display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'flex-start'}}>
         <Header mode={isDarkMode} changeMode={changeMode} />
-        <Box sx={{display: 'flex', direction: 'row', alignItems: 'stretch', outline: '1px solid yellow'}}>
+        <Box sx={{display: 'flex', direction: 'row', alignItems: 'stretch', minHeight: 'max-content', height: '100%'}}>
           <Sidebar>
             <InputSection state={teams} setter={setTeams} translation="teams" />
             <InputSection state={people} setter={setPeople} translation="people" />

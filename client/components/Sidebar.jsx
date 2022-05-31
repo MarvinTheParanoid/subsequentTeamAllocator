@@ -1,11 +1,13 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import PropTypes from "prop-types";
 
 export default function Sidebar({ children }) {
   return (
-    <Box sx={{border: 1, borderRadius: 1, padding: 2, height: "100%" }}>
-      {children}
+    <Box sx={{height: "100%", padding: 5, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', minWidth: 'max-content', width: 'min(30%, 40em)' }}>
+      <Paper sx={{padding: 5, border: 1, minWidth: 'max-content', width: 0.85}}>
+        {children}
+      </Paper>
     </Box>
   );
 }

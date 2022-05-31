@@ -21,7 +21,7 @@ export default function InputSection({ state, setter, translation }) {
 
   return (
     <Box>
-      <Typography>{t("title")}</Typography>
+      <Typography variant="h4">{t("title")}</Typography>
       {/* should this be a form component */}
       <Box component="form" onSubmit={handleSubmit}>
         <TextField id={translation} label={t("label")} variant="standard" value={input} onChange={handleInput}/>
