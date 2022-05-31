@@ -10,7 +10,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import InputSection from "./InputSection";
-import Main from './Main';
+import Main from "./Main";
 
 // App
 function App() {
@@ -28,14 +28,30 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ height: "100vh", display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'flex-start'}}>
+      <Box
+        sx={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "stretch",
+          justifyContent: "flex-start",
+        }}
+      >
         <Header mode={isDarkMode} changeMode={changeMode} />
-        <Box sx={{display: 'flex', direction: 'row', alignItems: 'stretch', minHeight: 'max-content', height: '100%'}}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "stretch",
+            minHeight: "max-content",
+            height: "100%",
+          }}
+        >
           <Sidebar>
             <InputSection state={teams} setter={setTeams} translation="teams" />
             <InputSection state={people} setter={setPeople} translation="people" />
           </Sidebar>
-          <Main sx={{flex: 'auto'}}/>
+          <Main sx={{ flex: "auto" }} />
         </Box>
       </Box>
     </ThemeProvider>
