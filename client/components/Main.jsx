@@ -3,7 +3,7 @@ import { Paper, Typography } from "@mui/material";
 
 function Main() {
   return (
-    <Paper sx={{ backgroundColor: "red" }}>
+    <Paper sx={{ backgroundColor: "red", flex: 'auto' }}>
       <Typography variant="body1">Main</Typography>
     </Paper>
   );

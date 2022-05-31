@@ -1,7 +1,7 @@
 // Imports
 import React, { useMemo } from "react";
 import "../i18n";
-import { CssBaseline, ThemeProvider, Grid, Box, Paper } from "@mui/material";
+import { CssBaseline, ThemeProvider, Grid, Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { getTheme } from "../theme";
 import { useLocalStorage } from "../hooks/useLocalStorage";
@@ -10,6 +10,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import InputSection from "./InputSection";
+import Main from './Main';
 
 // App
 function App() {
@@ -27,25 +28,15 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box style={{ height: "100vh" }}>
-        <Grid
-          container
-          direction="column"
-          justifyContent="flex-start"
-          alignItems="stretch"
-          height={"100%"}
-        >
-          <Header mode={isDarkMode} changeMode={changeMode} />
-          <Grid item xs container direction="row" alignItems="stretch" height={"100%"}>
-            <Sidebar>
-              <InputSection state={teams} setter={setTeams} translation="teams" />
-              <InputSection state={people} setter={setPeople} translation="people" />
-            </Sidebar>
-            <Grid item xs>
-              2
-            </Grid>
-          </Grid>
-        </Grid>
+      <Box sx={{ height: "100vh", display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'flex-start'}}>
+        <Header mode={isDarkMode} changeMode={changeMode} />
+        <Box sx={{display: 'flex', direction: 'row', alignItems: 'stretch', outline: '1px solid yellow'}}>
+          <Sidebar>
+            <InputSection state={teams} setter={setTeams} translation="teams" />
+            <InputSection state={people} setter={setPeople} translation="people" />
+          </Sidebar>
+          <Main sx={{flex: 'auto'}}/>
+        </Box>
       </Box>
     </ThemeProvider>
   );
