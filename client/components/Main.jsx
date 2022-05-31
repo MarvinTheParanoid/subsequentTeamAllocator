@@ -1,12 +1,17 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import PropTypes from "prop-types";
 
-function Main() {
+export default function Main({children}) {
   return (
-    <Box sx={{ flex: "auto" }}>
-      <Typography variant="body1">Main</Typography>
+    <Box sx={{ flex: "auto", padding: 5, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} component='main'>
+      {children}
     </Box>
   );
 }
 
-export default Main;
+
+Main.propTypes = {
+  children: PropTypes.node,
+};
+

@@ -16,7 +16,7 @@ export default function Sidebar({ children }) {
         width: "min(33%, 40em)",
       }}
     >
-      <Paper sx={{ padding: 5, border: 1}}>{children}</Paper>
+      <Paper sx={{ padding: 5, border: 1, height: "100%"}}>{children}</Paper>
     </Box>
   );
 }

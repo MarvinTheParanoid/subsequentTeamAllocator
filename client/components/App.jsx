@@ -11,6 +11,8 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import InputSection from "./InputSection";
 import Main from "./Main";
+import Results from './Results';
+import Controls from './Controls'
 
 // App
 function App() {
@@ -51,7 +53,10 @@ function App() {
             <InputSection state={teams} setter={setTeams} translation="teams" />
             <InputSection state={people} setter={setPeople} translation="people" />
           </Sidebar>
-          <Main sx={{ flex: "auto" }} />
+          <Main>
+            <Results />
+            <Controls />
+          </Main>
         </Box>
       </Box>
     </ThemeProvider>

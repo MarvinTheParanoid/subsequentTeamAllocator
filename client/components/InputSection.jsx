@@ -39,7 +39,7 @@ export default function InputSection({ state, setter, translation }) {
         </Button>
       </Box>
       {/* create chip section */}
-      <ChipSection names={state} handleDelete={handleDelete} />
+      <ChipSection names={state} handleDelete={handleDelete} size="small"/>
     </Box>
   );
 }
