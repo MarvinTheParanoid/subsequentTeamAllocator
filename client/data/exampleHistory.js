@@ -1,4 +1,4 @@
-export const allocations = [
+export default [
   {
     teams: [
       {

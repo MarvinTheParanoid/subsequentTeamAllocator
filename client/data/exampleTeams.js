@@ -1,4 +1,4 @@
-export const teams = [
+export default [
   {
     id: "X01",
     name: "Team A",
